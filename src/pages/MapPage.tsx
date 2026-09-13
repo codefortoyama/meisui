@@ -31,6 +31,7 @@ export const MapPage = () => {
   );
   const totalCount = spots?.length ?? 0;
   const mapRef = useRef<L.Map | null>(null);
+  const markersLayerRef = useRef<L.LayerGroup | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [municipalityFilter, setMunicipalityFilter] = useState('');
 
