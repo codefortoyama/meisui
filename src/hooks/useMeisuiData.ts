@@ -15,22 +15,23 @@ export function useMeisuiData() {
     let cancelled = false;
 
     const loadData = async () => {
+      const url = `${API_BASE}data/meisui.json`;
+      console.log('Fetching data from:', url);
       try {
-        const response = await fetch(`${API_BASE}data/meisui.json`);
+        const response = await fetch(url);
         if (response.ok) {
           const raw = await response.json();
           const validSpots = normalizeSpots(raw.filter((item: any) => item !== null && typeof item === 'object'));
           setSpots(validSpots);
         } else {
-          throw new Error(`データの読み込みに失敗しました: ${response.status}`);
+          throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
         }
         setLoading(false);
       } catch (err) {
         console.error('データ読み込みエラー:', err);
-        setError((err as Error).message);
-        setLoading(false);
         if (!cancelled) {
-          setError('データの読み込みに失敗しました。再読み込みしてください。');
+          setError(`データの読み込みに失敗しました (${(err as Error).message})`);
+          setLoading(false);
         }
       }
     };
