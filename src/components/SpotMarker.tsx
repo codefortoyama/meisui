@@ -45,7 +45,7 @@ export const SpotMarker = (props: {
     iconAnchor: [18, 36],
   });
 
-  const marker = L.marker(position, {divIcon} as L.MarkerOptions);
+  const marker = L.marker(position, {icon: divIcon});
   if (onClick) {
     marker.on('click', onClick);
   }

@@ -29,10 +29,18 @@ export const LocationCorrectionModal = ({ spotId, spotName, initialLat, initialL
       attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
     }).addTo(map);
 
+    // Custom correction icon to avoid default icon 404s
+    const correctionIcon = L.divIcon({
+      html: `<div style="background: #ef4444; width: 32px; height: 32px; border: 3px solid white; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">📍</div>`,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+    });
+
     // Draggable marker
     const marker = L.marker([initialLat, initialLon], {
       draggable: true,
       autoPan: true,
+      icon: correctionIcon,
     }).addTo(map);
 
     marker.on('dragend', (e) => {
