@@ -70,49 +70,34 @@ export const MapPage = () => {
     });
   }, [spots, searchQuery, municipalityFilter]);
 
-  const markersLayerRef = useRef<L.LayerGroup | null>(null);
-
   useEffect(() => {
-    if (loading || error || !mapRef.current) return;
-    
-    if (!markersLayerRef.current) {
-      markersLayerRef.current = L.layerGroup().addTo(mapRef.current);
-    }
+    if (loading || error) return;
 
-    markersLayerRef.current.clearLayers();
-    
-    if (filteredSpots.length > 0) {
+    // Map already initialized?
+    if (mapRef.current) {
+      // Just update markers and view
+      if (!markersLayerRef.current) {
+        markersLayerRef.current = L.layerGroup().addTo(mapRef.current);
+      }
+      
+      markersLayerRef.current.clearLayers();
       filteredSpots.forEach((spot) => {
-        const isVisited = hasVisited(spot.id);
         const marker = SpotMarker({
           position: [spot.latitude!, spot.longitude!],
           onClick: () => onSpotClick(spot.id),
-          visited: isVisited,
+          visited: hasVisited(spot.id),
           name: spot.name,
         });
         marker.addTo(markersLayerRef.current!);
       });
 
-      // Fit bounds only if it's the initial load or filters changed
-      // But don't override user interaction too aggressively
-      // For now, let's fit if no user position
-      if (!position && filteredSpots.length > 0 && !searchQuery && !municipalityFilter) {
-        const bounds = L.latLngBounds(filteredSpots.map(s => [s.latitude!, s.longitude!] as [number, number]));
-        mapRef.current.fitBounds(bounds, {padding: [20, 20]});
-      }
-    }
-  }, [loading, error, filteredSpots, hasVisited, position]);
-
-  useEffect(() => {
-    if (loading || error) return;
-
-    if (mapRef.current) {
       if (position) {
-        mapRef.current.setView([position.latitude, position.longitude], 13);
+        mapRef.current.panTo([position.latitude, position.longitude], {animate: false});
       }
       return;
     }
 
+    // Initialize map
     const initialCenter = position 
       ? [position.latitude, position.longitude] as [number, number]
       : DEFAULT_CENTER;
@@ -120,12 +105,31 @@ export const MapPage = () => {
     const map = L.map('map', {
       center: initialCenter,
       zoom: position ? 13 : 10,
+      zoomAnimation: false, // Prevent _leaflet_pos error during rapid remounts
     });
 
     L.tileLayer(MAP_TILE_URL, {
       attribution: MAP_ATTRIBUTION,
       maxZoom: 18,
     }).addTo(map);
+
+    const markersLayer = L.layerGroup().addTo(map);
+    markersLayerRef.current = markersLayer;
+
+    filteredSpots.forEach((spot) => {
+      const marker = SpotMarker({
+        position: [spot.latitude!, spot.longitude!],
+        onClick: () => onSpotClick(spot.id),
+        visited: hasVisited(spot.id),
+        name: spot.name,
+      });
+      marker.addTo(markersLayer);
+    });
+
+    if (!position && filteredSpots.length > 0) {
+      const bounds = L.latLngBounds(filteredSpots.map(s => [s.latitude!, s.longitude!] as [number, number]));
+      map.fitBounds(bounds, {padding: [20, 20], animate: false});
+    }
 
     setTimeout(() => {
       map.invalidateSize();
@@ -134,11 +138,11 @@ export const MapPage = () => {
     mapRef.current = map;
 
     return () => {
-      map?.remove();
+      map.remove();
       mapRef.current = null;
       markersLayerRef.current = null;
     };
-  }, [loading, error, position]);
+  }, [loading, error, filteredSpots, hasVisited, position]);
 
   if (loading) {
     return <LoadingView />;
