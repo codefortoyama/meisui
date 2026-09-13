@@ -1,0 +1,94 @@
+/* HomePage.module.css - Nature Source */
+.homeSection {
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(180deg, #ecfdf5 0%, #f8fafc 100%);
+}
+
+.header {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: white;
+  margin-bottom: 2rem;
+  border-radius: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.main {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.statItem {
+  background: white;
+  padding: 1.25rem 0.5rem;
+  border-radius: 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  border: 1px solid #f1f5f9;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #064e3b;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 1rem;
+  background: #064e3b;
+  color: white;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.15);
+  text-align: center;
+}
+
+.btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(6, 78, 59, 0.2);
+}
+
+.dataSource {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+@media (max-width: 400px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}

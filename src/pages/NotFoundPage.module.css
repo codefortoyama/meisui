@@ -1,0 +1,32 @@
+/* NotFoundPage.module.css */
+.notFoundPage {
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  background: #f0f4f8;
+}
+
+.notFoundPage h2 {
+  color: #1a365d;
+  margin-bottom: 1rem;
+}
+
+.notFoundPage p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.homeButton {
+  padding: 0.75rem 1.5rem;
+  background: #1a365d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.homeButton:focus-visible {
+  outline: 2px solid #1a365d;
+  outline-offset: 2px;
+}

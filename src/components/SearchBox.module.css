@@ -1,0 +1,32 @@
+/* SearchBox.module.css */
+.searchWrapper {
+  margin: 0.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.searchLabel {
+  font-size: 0.875rem;
+  color: #333;
+  white-space: nowrap;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px 0 0 4px;
+  background: white;
+  cursor: text;
+}
+
+.searchInput:focus-visible {
+  outline: 2px solid #1a365d;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.searchInput:hover {
+  border-color: #94a3b8;
+}

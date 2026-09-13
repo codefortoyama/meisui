@@ -1,0 +1,37 @@
+/* SettingsPage.module.css */
+.settingsPage {
+  min-height: 100vh;
+  padding: 1rem;
+  background: #f0f4f8;
+}
+
+.pageHeader {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: white;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.settingsMain {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.settingItem {
+  margin-bottom: 1.5rem;
+}
+
+.settingItem h2 {
+  font-size: 1rem;
+  color: #1a365d;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.settingItem p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #333;
+}

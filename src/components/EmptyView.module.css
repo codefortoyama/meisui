@@ -1,0 +1,12 @@
+/* EmptyView.module.css */
+.emptyContainer {
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  background: #f0f4f8;
+}
+
+.emptyMessage {
+  color: #666;
+  font-size: 1.125rem;
+}

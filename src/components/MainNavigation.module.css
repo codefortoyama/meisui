@@ -1,0 +1,56 @@
+/* MainNavigation.module.css - Nature Source */
+.navigation {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.navList {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.navItem {
+  flex: 1;
+  text-align: center;
+}
+
+.navButton {
+  width: 100%;
+  padding: 1.1rem 0.5rem;
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+  border-bottom: 4px solid transparent;
+}
+
+.navButton:hover {
+  color: #059669;
+  background: #f0fdf4;
+}
+
+.navButton[aria-pressed="true"] {
+  color: #064e3b;
+  border-bottom: 4px solid #059669;
+  background: #ecfdf5;
+}
+
+@media (max-width: 480px) {
+  .navButton {
+    font-size: 0.75rem;
+    padding: 0.9rem 0.1rem;
+  }
+}

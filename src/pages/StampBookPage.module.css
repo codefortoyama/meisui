@@ -1,0 +1,174 @@
+/* StampBookPage.module.css - Nature Source */
+.stampBookPage {
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(180deg, #ecfdf5 0%, #f8fafc 100%);
+}
+
+.pageHeader {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: white;
+  margin-bottom: 2rem;
+  border-radius: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.pageHeader h1 {
+  font-size: 1.75rem;
+  color: #064e3b;
+  margin-bottom: 0.75rem;
+  font-weight: 900;
+}
+
+.rankContainer {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #f0fdf4;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #dcfce7;
+}
+
+.rankLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.rankTitle {
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.stampBookMain {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.achievement {
+  background: white;
+  padding: 2rem;
+  border-radius: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  border: 1px solid #f1f5f9;
+}
+
+.rate {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.spotList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.listItem {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  border: 1.5px solid #f1f5f9;
+  transition: all 0.2s;
+}
+
+.listItem:hover {
+  transform: translateY(-2px);
+  border-color: #059669;
+}
+
+.listContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.spotName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.spotMunicipality {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.visitStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f8fafc;
+}
+
+.visitedMark {
+  color: white;
+  background: #059669;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0;
+  box-shadow: 0 2px 4px rgba(5, 150, 105, 0.15);
+}
+
+.unvisited {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #f1f5f9;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0;
+}
+
+.visitedAt {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.footer {
+  margin-top: 3rem;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.initButton {
+  padding: 0.8rem 1.75rem;
+  background: white;
+  color: #ef4444;
+  border: 2px solid #fee2e2;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.initButton:hover {
+  background: #fef2f2;
+  border-color: #ef4444;
+}
